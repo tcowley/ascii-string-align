@@ -13,8 +13,6 @@ test('test string length', function (t) {
     t.equal(b, a.slice(0,10), "string longer than specified width is returned as-is");
 });
 
-
-
 test('test empty string with alignment', function (t) {
     var a = '';
     var b;
@@ -27,3 +25,5 @@ test('test empty string with alignment', function (t) {
     });
 
 });
+
+
