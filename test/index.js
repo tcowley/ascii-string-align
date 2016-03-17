@@ -14,16 +14,38 @@ test('test string length', function (t) {
 });
 
 test('test empty string with alignment', function (t) {
-    var a = '';
-    var b;
-    var c = (new Array(10)).join(' ');
     t.plan(4);
     
     ['left', 'right', 'center', 'justify'].forEach(function(alignment) {
-        b = stringpad(a, 10, alignment);
-        t.equal(b, c, "empty string padded to specified to width with align " + alignment);
+        var a = '';
+        var b = stringpad(a, 10, alignment);
+        var c = (new Array(11)).join(' ');
+        t.equal(b, c, "empty string padded to specified width with alignment '" + alignment + "'");
     });
 
 });
+
+test('test short strings with various alignments', function (t) {
+    t.plan(3);
+    var a = 'one';
+    var s = '                        ';
+    var b = stringpad(a, 10);
+    var c = (a + s).slice(0,10);
+    //console.log('[' + b + ']', '[' + c + ']' );
+    t.equal(b, c, "short string padded to specified width with alignment 'left'");
+
+    b = stringpad(a, 10, 'right');
+    c = (s + a).slice(-10);
+    //console.log('[' + b + ']', '[' + c + ']' );
+    t.equal(b, c, "short string padded to specified width with alignment 'right'");
+    
+    // 1234one890
+    b = stringpad(a, 10, 'center');
+    c = s.slice(-3) + a + s.slice(-4);
+    //console.log('[' + b + ']', '[' + c + ']' );
+    t.equal(b, c, "short string padded to specified width with alignment 'center'");
+
+});
+
 
 

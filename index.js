@@ -1,5 +1,5 @@
 module.exports = function stringPad(str, width, align) {
-    var spaces = (new Array(width)).join(' ');
+    var spaces = (new Array(width + 1)).join(' ');
     var paddedStr = '';
     var right;
     var left;
@@ -11,7 +11,7 @@ module.exports = function stringPad(str, width, align) {
         paddedStr = (spaces + str).slice( -width );
         break;
     case 'center':
-        left = Math.ceil((width - str.length)/2);
+        left = Math.floor((width - str.length)/2);
         right = width - str.length - left;
         paddedStr = (spaces + str).slice(-(str.length + left));
         paddedStr = (paddedStr + spaces).slice(0, width);
