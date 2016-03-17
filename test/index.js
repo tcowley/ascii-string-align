@@ -1,5 +1,6 @@
 var test = require('tape-catch');
 var stringpad = require('../index.js');
+var x = 1;
 
 test('test empty string with alignment', function (t) {
     t.plan(4);
