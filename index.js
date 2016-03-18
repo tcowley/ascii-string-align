@@ -1,3 +1,7 @@
+// --------------------------------------------------------------------------------
+// String Pad Library
+// --------------------------------------------------------------------------------
+
 module.exports = function stringPad(str, width, align) {
     var spaces = (new Array(width + 1)).join(' ');
     var paddedStr = '';
@@ -5,6 +9,8 @@ module.exports = function stringPad(str, width, align) {
     var left;
     var words;
     var padding;
+    
+    str = str.trim();
     
     switch (align) {
     case 'right':

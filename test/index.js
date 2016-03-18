@@ -2,15 +2,25 @@ var test = require('tape-catch');
 var stringpad = require('../index.js');
 
 test('test string length', function (t) {
-    var a = 'aaa                   ';
+    var a = 'aaa';
     var b;
-    t.plan(2);
+    var c;
+    t.plan(3);
     
-    b = stringpad(a.slice(0,3), 10);
-    t.equal(b, a.slice(0,10), "string shorter than specified width is padded to width");
-
-    b = stringpad(a.slice(0,10), 2);
-    t.equal(b, a.slice(0,10), "string longer than specified width is returned as-is");
+    b = stringpad(a, 10);
+    c = 'aaa       ';
+    t.equal(b, c, "string shorter than specified width is padded to width");
+    
+    a = 'aaaa a aaaa aaaaaa';
+    b = stringpad(a, 10);
+    c = a;
+    t.equal(b, c, "string longer than specified width and with no outer whitespace is returned as-is");
+    
+    a = '   A B   ';
+    b = stringpad(a, 5, 'justify');
+    c = 'A   B';
+    t.equal(b, c, "string with outer whitespace is trimmed before padding");
+    
 });
 
 test('test empty string with alignment', function (t) {
@@ -38,7 +48,7 @@ test('test short strings with various alignments', function (t) {
     c = (s + a).slice(-10);
     //console.log('[' + b + ']', '[' + c + ']' );
     t.equal(b, c, "short string padded to specified width with alignment 'right'");
-    
+
     // 1234one890
     b = stringpad(a, 10, 'center');
     c = s.slice(-3) + a + s.slice(-4);
