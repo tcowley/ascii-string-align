@@ -1,29 +1,17 @@
 var test = require('tape-catch');
 var stringpad = require('../index.js');
 
-test('test string length', function (t) {
-    var a = 'aaa';
-    var b;
-    var c;
-    t.plan(3);
+test('test misc use cases', function (t) {
+    t.plan(1);
     
-    b = stringpad(a, 10);
-    c = 'aaa       ';
-    t.equal(b, c, "string shorter than specified width is padded to width");
-    
-    a = 'aaaa a aaaa aaaaaa';
-    b = stringpad(a, 10);
-    c = a;
-    t.equal(b, c, "string longer than specified width and with no outer whitespace is returned as-is");
-    
-    a = '   A B   ';
-    b = stringpad(a, 5, 'justify');
-    c = 'A   B';
+    var a = '   A B   ';
+    var b = stringpad(a, 5, 'justify');
+    var c = 'A   B';
     t.equal(b, c, "string with outer whitespace is trimmed before padding");
     
 });
 
-test('test empty string with alignment', function (t) {
+test('test empty strings with various alignments', function (t) {
     t.plan(4);
     
     ['left', 'right', 'center', 'justify'].forEach(function(alignment) {
@@ -36,25 +24,27 @@ test('test empty string with alignment', function (t) {
 });
 
 test('test short strings with various alignments', function (t) {
-    t.plan(3);
-    var a = 'one';
-    var s = '                        ';
-    var b = stringpad(a, 10);
-    var c = (a + s).slice(0,10);
-    //console.log('[' + b + ']', '[' + c + ']' );
-    t.equal(b, c, "short string padded to specified width with alignment 'left'");
+    t.plan(4);
+    
+    var c = [ 'A B C     ', '     A B C', '  A B C   ', 'A   B    C' ];
 
-    b = stringpad(a, 10, 'right');
-    c = (s + a).slice(-10);
-    //console.log('[' + b + ']', '[' + c + ']' );
-    t.equal(b, c, "short string padded to specified width with alignment 'right'");
+    ['left', 'right', 'center', 'justify'].forEach(function(alignment, i) {
+        var a = 'A B C';
+        var b = stringpad(a, 10, alignment);
+        t.equal(b, c[i], "short string padded to specified width with alignment '" + alignment + "'");
+    });
+   
+});
 
-    // 1234one890
-    b = stringpad(a, 10, 'center');
-    c = s.slice(-3) + a + s.slice(-4);
-    //console.log('[' + b + ']', '[' + c + ']' );
-    t.equal(b, c, "short string padded to specified width with alignment 'center'");
-
+test('test long strings with various alignments', function (t) {
+    t.plan(4);
+    
+    ['left', 'right', 'center', 'justify'].forEach(function(alignment, i) {
+        var a = 'A B C D E F G H I J';
+        var b = stringpad(a, 10, alignment);
+        t.equal(b, a, "string longer than specified width is returned as-is for alignment '" + alignment + "'");
+    });
+    
 });
 
 
