@@ -1,7 +1,7 @@
 {
-    "name": "string-pad",
+    "name": "string-align",
     "version": "0.0.1",
-    "description": "Pad a string to a specific width, with a given alignment: left, right, center, justify",
+    "description": "Trim, then pad a string to a specific width, and with a given alignment: left, right, center, justify",
     "main": "index.js",
     "private": true,
     "scripts": {
@@ -9,11 +9,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@gittrevor:cli/lib/string-pad"
+        "url": "git+ssh://git@gittrevor:cli/lib/string-align"
     },
     "keywords": [
         "cli",
-        "string pad",
+        "string",
+        "align",
         "library"
     ],
     "author": "Trevor Cowley",

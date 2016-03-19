@@ -1,8 +1,14 @@
 // --------------------------------------------------------------------------------
-// String Pad Library
+// String Align Library
 // --------------------------------------------------------------------------------
 
-module.exports = function stringPad(rawStr, width, align) {
+module.exports = stringAlign;
+   
+// --------------------------------------------------------------------------------
+// Methods
+// --------------------------------------------------------------------------------
+    
+function stringAlign(rawStr, width, align) {
     var spaces = (new Array(width + 1)).join(' ');
     var paddedStr = '';
     var str = rawStr.trim();
