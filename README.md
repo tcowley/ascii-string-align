@@ -2,4 +2,4 @@
 
 ## Description
 
-Using JavaScript, trim, then pad an ascii string to a specific width, and with a given alignment: left, right, center, justify.
+Using JavaScript, trim, then pad an ASCII string to a specific width, and with a given alignment: left, right, center, justify.

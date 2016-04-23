@@ -1,14 +1,14 @@
 // --------------------------------------------------------------------------------
-// String Align Library
+// ASCII String Align Library
 // --------------------------------------------------------------------------------
 
-module.exports = stringAlign;
+module.exports = asciiStringAlign;
    
 // --------------------------------------------------------------------------------
 // Methods
 // --------------------------------------------------------------------------------
     
-function stringAlign(rawStr, width, align) {
+function asciiStringAlign(rawStr, width, align) {
     var spaces = (new Array(width + 1)).join(' ');
     var paddedStr = '';
     var str = rawStr.trim();
