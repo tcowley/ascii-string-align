@@ -1,5 +1,5 @@
 {
-    "name": "string-align",
+    "name": "ascii-string-align",
     "version": "0.0.1",
     "description": "Trim, then pad a string to a specific width, and with a given alignment: left, right, center, justify",
     "main": "index.js",
@@ -9,10 +9,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@gittrevor:cli/lib/string-align"
+        "url": "https://github.com/tcowley/ascii-string-align"
     },
     "keywords": [
-        "cli",
+        "ascii",
         "string",
         "align",
         "library"
