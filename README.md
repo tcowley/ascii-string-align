@@ -55,20 +55,20 @@ The library exports one method, which accepts two parameters:
 | ----- | ------- | ------ |
 | **asciiString** | Any length of ASCII string  | The string to be padded with spaces to the specified **width**. |
 | **width**   | Any positive integer  | The width, in characters, that the resulting string should be. If width is shorter than the length of **asciiString**, **asciiString** will be returned unchanged. |
-| **alignment** | _Optional_. One of 'left', 'right', 'center' or 'justify'. Default is 'left'  | Determines how spaces are added to the string. See **String Aligment**, below for examples. |
+| **alignment** | _Optional_. One of 'left', 'right', 'center' or 'justify'. Default is 'left'  | Determines how spaces are added to the string. See **String Alignment**, below for examples. |
 
 The return value is always a string. Illegal inputs throw an error.
 
 #### String Alignment Examples
 
 ```JavaScript
-asciiStringAlign("a b c d e", 20, 'left');       // 'a b c d e           '
+asciiStringAlign("a b c d e", 20, 'left');      //  'a b c d e           '
 
-asciiStringAlign("a b c d e", 20, 'right');     // '           a b c d e'
+asciiStringAlign("a b c d e", 20, 'right');     //  '           a b c d e'
 
-asciiStringAlign("a b c d e", 20, 'center');    // '     a b c d e      '
+asciiStringAlign("a b c d e", 20, 'center');    //  '     a b c d e      '
 
-asciiStringAlign("a b c d e", 20, 'justify');   // 'a   b    c    d    e'
+asciiStringAlign("a b c d e", 20, 'justify');   //  'a   b    c    d    e'
 ```
 
 
