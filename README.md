@@ -2,11 +2,6 @@
 
 ## Description
 
-Using JavaScript, trim, then pad an ASCII string to a specific width, and with a given alignment: left, right, center, justify.
-
-
-## Description
-
 Using Node.js, trim then pad an ASCII string to a specific width. Optionally specify a given alignment of the text: **left**, **right**, **center**, **justify**.
 
 Please note that the library may not format multi-byte strings nicely, so ASCII is all that is really supported. 
