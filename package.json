@@ -1,34 +1,33 @@
 {
-    "name": "ascii-string-align",
-    "version": "0.0.1",
-    "description": "Trim, then pad an ascii string to a specific width, and with a given alignment: left, right, center, justify.",
-    "main": "index.js",
-    "scripts": {
-        "test": "tape './test/**/*.js' | tap-difflet",
-        "preversion": "npm test",
-        "version": "",
-        "postversion": "git push && git push --tags"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/tcowley/ascii-string-align"
-    },
-    "keywords": [
-        "ascii",
-        "string",
-        "align",
-        "library"
-    ],
-    "author": "Trevor Cowley",
-    "license": "ISC",
-    "dependencies": {
-    },
-    "devDependencies": {
-        "blue-tape": "^0.1.10",
-        "glob": "^5.0.14",
-        "tap-difflet": "^0.3.0",
-        "tap-min": "^1.0.0",
-        "tape": "^4.0.3",
-        "tape-catch": "^1.0.4"
-    }
+  "name": "ascii-string-align",
+  "version": "1.0.0",
+  "description": "Trim, then pad an ascii string to a specific width, and with a given alignment: left, right, center, justify.",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape './test/**/*.js' | tap-difflet",
+    "preversion": "npm test",
+    "version": "",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tcowley/ascii-string-align"
+  },
+  "keywords": [
+    "ascii",
+    "string",
+    "align",
+    "library"
+  ],
+  "author": "Trevor Cowley",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "blue-tape": "^0.1.10",
+    "glob": "^5.0.14",
+    "tap-difflet": "^0.3.0",
+    "tap-min": "^1.0.0",
+    "tape": "^4.0.3",
+    "tape-catch": "^1.0.4"
+  }
 }
