@@ -1,2 +1,5 @@
 .idea
 node_modules
+todo.txt
+npm-error.log
+.DS_Store
