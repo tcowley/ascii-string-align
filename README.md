@@ -12,7 +12,7 @@ Please note that the library may not format multi-byte strings nicely, so ASCII 
 Add this library to your current Node.js project using npm:
 
 ```
-npm install --save https://github.com/tcowley/ascii-string-align
+npm install --save ascii-string-align
 ```
 
 Or, checkout the source:
@@ -30,17 +30,20 @@ Here is a basic code example. Full behaviour is documented in the **API Referenc
 var asciiStringAlign = require('ascii-string-align');
 
 var myString = 'a b c d e';
-
 var width = 20;
 
-var alignedString = asciiStringAlign(myString, width, 'justify');
+['left', 'right', 'center', 'justify'].forEach(function(alignment) {
+    console.log('[' + asciiStringAlign(myString, width, alignment) + ']');
+});
 
-console.log('[' + alignedString + ']');
 ```
 
 This example will output:
 
 ```bash
+[a b c d e           ] 
+[           a b c d e] 
+[     a b c d e      ] 
 [a   b    c    d    e] 
 ```
 
