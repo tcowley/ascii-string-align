@@ -1,11 +1,13 @@
 {
     "name": "ascii-string-align",
     "version": "0.0.1",
-    "description": "Trim, then pad a string to a specific width, and with a given alignment: left, right, center, justify",
+    "description": "Trim, then pad an ascii string to a specific width, and with a given alignment: left, right, center, justify.",
     "main": "index.js",
-    "private": true,
     "scripts": {
-        "test": "tape './test/**/*.js' | tap-difflet"
+        "test": "tape './test/**/*.js' | tap-difflet",
+        "preversion": "npm test",
+        "version": "",
+        "postversion": "git push && git push --tags"
     },
     "repository": {
         "type": "git",
