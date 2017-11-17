@@ -1,4 +1,4 @@
-# ascii-string-align  ![Build Status](https://travis-ci.org/tcowley/ascii-string-align.svg?branch=master)
+# ascii-string-align  [![Build Status](https://travis-ci.org/tcowley/ascii-string-align.svg?branch=master)](https://travis-ci.org/tcowley/ascii-string-align)
 
 ## Description
 
