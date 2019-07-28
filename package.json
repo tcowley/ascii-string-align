@@ -7,7 +7,8 @@
     "test": "tape './test/**/*.js' | tap-difflet",
     "preversion": "npm test",
     "version": "",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "start": "node ./examples/demo.js"
   },
   "repository": "tcowley/ascii-string-align",
   "keywords": [
@@ -18,7 +19,9 @@
   ],
   "author": "Trevor Cowley",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "string-width": "^4.1.0"
+  },
   "devDependencies": {
     "blue-tape": "^0.1.10",
     "glob": "^5.0.14",
