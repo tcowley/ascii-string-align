@@ -4,7 +4,7 @@
 
 Using Node.js, trim then pad an ASCII string to a specific width. Optionally specify a given alignment of the text: **left**, **right**, **center**, **justify**.
 
-Please note that the library may not format multi-byte strings nicely, so ASCII is all that is really supported. 
+Please note that the library not only support ASCII but also fullwidth characters.  
 
 
 ## Installation
@@ -31,20 +31,28 @@ var asciiStringAlign = require('ascii-string-align');
 
 var myString = 'a b c d e';
 var width = 20;
+var myString_fullwidth = '台 a b 灣 c 好棒';
+var width_fullwidth = 30;
 
 ['left', 'right', 'center', 'justify'].forEach(function(alignment) {
     console.log('[' + asciiStringAlign(myString, width, alignment) + ']');
 });
-
+['left', 'right', 'center', 'justify'].forEach(function(alignment) {
+    console.log('[' + asciiStringAlign(myString_fullwidth, width_fullwidth, alignment) + ']');
+});
 ```
 
 This example will output:
 
 ```bash
-[a b c d e           ] 
-[           a b c d e] 
-[     a b c d e      ] 
-[a   b    c    d    e] 
+[a b c d e           ]  
+[           a b c d e]  
+[     a b c d e      ]  
+[a   b    c    d    e]  
+[台 a b 灣 c 好棒              ]
+[              台 a b 灣 c 好棒]
+[       台 a b 灣 c 好棒       ]
+[台   a    b    灣    c    好棒]
 ```
 
 
@@ -57,7 +65,7 @@ The library exports one method, which accepts two parameters:
 | Param | Values | Description |
 | ----- | ------- | ------ |
 | **asciiString** | Any length of ASCII string  | The string to be padded with spaces to the specified **width**. |
-| **width**   | Any positive integer  | The width, in characters, that the resulting string should be. If width is shorter than the length of **asciiString**, **asciiString** will be returned unchanged. |
+| **width**   | Any positive integer  | The width, in characters, that the resulting string should be. If width is shorter than the length of **asciiString**, **asciiString** will be returned unchanged. (a halfwidth character is counted width 1, fullwidth 2) |
 | **alignment** | _Optional_. One of '**left**', '**right**', '**center**' or '**justify**'. Default is '**left**'  | Determines how spaces are added to the string. See **String Alignment**, below for examples. |
 
 The return value is always a string. Illegal inputs throw an error.
