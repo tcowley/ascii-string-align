@@ -1,3 +1,5 @@
+'use strict';
+const strWidth = require('string-width');
 // --------------------------------------------------------------------------------
 // ASCII String Align Library
 // --------------------------------------------------------------------------------
@@ -17,7 +19,8 @@ function asciiStringAlign(rawStr, width, align) {
     var words;
     var padding;
     
-    if (str.length >= width) {
+    width = width - (strWidth(str) - str.length);
+    if (str.length >= width) {    
         return rawStr;
     }
     
@@ -34,18 +37,19 @@ function asciiStringAlign(rawStr, width, align) {
             paddedStr = (paddedStr + spaces).slice(0, width);
             break;
         
-    case 'justify':
+        case 'justify':
             // - justified strings are trimmed, then spaces are added between words until width is reached.
             // - spacing has a bias to the right; ie, on average there will be more spaces on the right half than the left.
+            spaces = spaces + ' '.repeat(strWidth(str) - str.length);
             str = str.trim();
             words = str.split(' ');
-            if (words.length < 2) {
+            if (words.length < 2) {    
                 paddedStr = (str + spaces).slice(0, width);
             }
             else {
                 padding = spaces.slice(0, width - str.length).split('');
                 words.reverse();
-                while (padding.length && padding.length < width) {
+                while (padding.length && padding.length < width) {    
                     words = words.map(function(word, i) {
                         return (i !== words.length - 1) && padding.length ? padding.shift() + word: word;
                     });
